@@ -1,388 +1,431 @@
-﻿using System.Runtime.Serialization;
+using System;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Entity
 {
 	/// <summary>
-	/// Enum Account Subtype
+	/// 
 	/// </summary>
-	public enum AccountSubType
+	public enum AccountSubtype
 	{
 		/// <summary>
-		/// Bank issued credit card
+		/// 
 		/// </summary>
-		[EnumMember(Value = "credit card")]
-		CreditCard,
+		[JsonPropertyName("401a")]
+		401a,
 
 		/// <summary>
-		/// PayPal issued depository account or credit card
+		/// 
 		/// </summary>
-		[EnumMember(Value = "paypal")]
-		PayPal,
+		[JsonPropertyName("401k")]
+		401k,
 
 		/// <summary>
-		/// Cash management account
+		/// 
 		/// </summary>
-		[EnumMember(Value = "cash management")]
-		CashManagement,
+		[JsonPropertyName("403B")]
+		403b,
 
 		/// <summary>
-		/// Certificate of deposit
+		/// 
 		/// </summary>
-		[EnumMember(Value = "cd")]
-		Cd,
+		[JsonPropertyName("457b")]
+		457b,
 
 		/// <summary>
-		/// Standard checking account
+		/// 
 		/// </summary>
-		[EnumMember(Value = "checking")]
-		Checking,
+		[JsonPropertyName("529")]
+		529,
 
 		/// <summary>
-		/// Standard savings account
+		/// 
 		/// </summary>
-		[EnumMember(Value = "savings")]
-		Savings,
-
-		/// <summary>
-		/// Similar to checking accounts
-		/// </summary>
-		[EnumMember(Value = "money market")]
-		MoneyMarket,
-
-		/// <summary>
-		/// Prepaid debit card
-		/// </summary>
-		[EnumMember(Value = "prepaid")]
-		PrePaid,
-
-		/// <summary>
-		/// Automobile loan
-		/// </summary>
-		[EnumMember(Value = "auto")]
-		Auto,
-
-		/// <summary>
-		/// Commercial loan
-		/// </summary>
-		[EnumMember(Value = "commercial")]
-		Commercial,
-
-		/// <summary>
-		/// Construction loan
-		/// </summary>
-		[EnumMember(Value = "construction")]
-		Construction,
-
-		/// <summary>
-		/// Consumer loan
-		/// </summary>
-		[EnumMember(Value = "consumer")]
-		Consumer,
-
-		/// <summary>
-		/// Home Equity Line of Credit (HELOC)
-		/// </summary>
-		[EnumMember(Value = "home equity")]
-		HomeEquity,
-
-		/// <summary>
-		/// General loan
-		/// </summary>
-		[EnumMember(Value = "loan")]
-		Loan,
-
-		/// <summary>
-		/// Mortgage loan
-		/// </summary>
-		[EnumMember(Value = "mortgage")]
-		Mortgage,
-
-		/// <summary>
-		/// Pre-approved overdraft account, usually tied to a checking account
-		/// </summary>
-		[EnumMember(Value = "overdraft")]
-		Overdraft,
-
-		/// <summary>
-		/// Pre-approved line of credit
-		/// </summary>
-		[EnumMember(Value = "line of credit")]
-		LineOfCredit,
-
-		/// <summary>
-		/// Student loan
-		/// </summary>
-		[EnumMember(Value = "student")]
-		Student,
-
-		/// <summary>
-		/// Plaid was unable to properly categorize this account or the account does not fit into our current schema.
-		/// </summary>
-		[EnumMember(Value = "other")]
-		Other,
-
-		/// <summary>
-		/// Employer-sponsored money-purchase retirement plan
-		/// </summary>
-		[EnumMember(Value = "401a")]
-		_401a,
-
-		/// <summary>
-		/// Standard 401k account
-		/// </summary>
-		[EnumMember(Value = "401k")]
-		_401k,
-
-		/// <summary>
-		/// Tax-advantaged retirement savings plan
-		/// </summary>
-		[EnumMember(Value = "403b")]
-		_403b,
-
-		/// <summary>
-		/// Tax-advantaged deferred-compensation retirement plan
-		/// </summary>
-		[EnumMember(Value = "457b")]
-		_457b,
-
-		/// <summary>
-		/// College savings plans and prepaid tuition plans
-		/// </summary>
-		[EnumMember(Value = "529")]
-		_529,
-
-		/// <summary>
-		/// Standard Brokerage account
-		/// </summary>
-		[EnumMember(Value = "brokerage")]
+		[JsonPropertyName("brokerage")]
 		Brokerage,
 
 		/// <summary>
-		/// UK account that pays interest tax-free
+		/// 
 		/// </summary>
-		[EnumMember(Value = "cash isa")]
+		[JsonPropertyName("cash isa")]
 		CashIsa,
 
 		/// <summary>
-		/// Tax-advantaged Education Savings Account (ESA)
+		/// 
 		/// </summary>
-		[EnumMember(Value = "education savings account")]
-		EducationSavingsAaccount,
+		[JsonPropertyName("education savings account")]
+		EducationSavingsAccount,
 
 		/// <summary>
-		/// Fixed Annuity
+		/// 
 		/// </summary>
-		[EnumMember(Value = "fixed annuity")]
-		FixedAnnuity,
+		[JsonPropertyName("ebt")]
+		Ebt,
 
 		/// <summary>
-		/// Canadian Guaranteed Investment Certificate
+		/// 
 		/// </summary>
-		[EnumMember(Value = "gic")]
+		[JsonPropertyName("gic")]
 		Gic,
 
 		/// <summary>
-		/// Tax-advantaged health benefit plan
+		/// 
 		/// </summary>
-		[EnumMember(Value = "health reimbursement arrangement")]
+		[JsonPropertyName("health reimbursement arrangement")]
 		HealthReimbursementArrangement,
 
 		/// <summary>
-		/// Tax-advantaged medical Health Savings Account
+		/// 
 		/// </summary>
-		[EnumMember(Value = "hsa")]
+		[JsonPropertyName("hsa")]
 		Hsa,
 
 		/// <summary>
-		/// Traditional IRA
+		/// 
 		/// </summary>
-		[EnumMember(Value = "ira")]
-		Ira,
-
-		/// <summary>
-		/// UK 'Individual Savings Account'
-		/// </summary>
-		[EnumMember(Value = "isa")]
+		[JsonPropertyName("isa")]
 		Isa,
 
 		/// <summary>
-		/// Keogh self-employed pension plan
+		/// 
 		/// </summary>
-		[EnumMember(Value = "keogh")]
-		Keogh,
+		[JsonPropertyName("ira")]
+		Ira,
 
 		/// <summary>
-		/// Canadian registered Retirement Income Fund
+		/// 
 		/// </summary>
-		[EnumMember(Value = "lif")]
+		[JsonPropertyName("lif")]
 		Lif,
 
 		/// <summary>
-		/// Canadian Locked-In Retirement Account
+		/// 
 		/// </summary>
-		[EnumMember(Value = "lira")]
+		[JsonPropertyName("life insurance")]
+		LifeInsurance,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("lira")]
 		Lira,
 
 		/// <summary>
-		/// Canadian Locked-in Retirement Income Fund
+		/// 
 		/// </summary>
-		[EnumMember(Value = "lrif")]
+		[JsonPropertyName("lrif")]
 		Lrif,
 
 		/// <summary>
-		/// Canadian Locked-in Retirement Savings Plan
+		/// 
 		/// </summary>
-		[EnumMember(Value = "lrsp")]
+		[JsonPropertyName("lrsp")]
 		Lrsp,
 
 		/// <summary>
-		/// Account that holds mutual fund positions
+		/// 
 		/// </summary>
-		[EnumMember(Value = "mutual fund")]
-		MutualFund,
-
-		/// <summary>
-		/// A non-taxable brokerage account that is not covered by a more specific subtype
-		/// </summary>
-		[EnumMember(Value = "non-taxable brokerage account")]
+		[JsonPropertyName("non-taxable brokerage account")]
 		NonTaxableBrokerageAccount,
 
 		/// <summary>
-		/// Standard Pension account
+		/// 
 		/// </summary>
-		[EnumMember(Value = "pension")]
-		Pension,
+		[JsonPropertyName("other")]
+		Other,
 
 		/// <summary>
-		/// Canadian Prescribed Registered Retirement Income Fund
+		/// 
 		/// </summary>
-		[EnumMember(Value = "prif")]
+		[JsonPropertyName("other insurance")]
+		OtherInsurance,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("other annuity")]
+		OtherAnnuity,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("prif")]
 		Prif,
 
 		/// <summary>
-		/// Plan gives employees share of company profits
+		/// 
 		/// </summary>
-		[EnumMember(Value = "profit sharing plan")]
-		ProfitSharingPlan,
-
-		/// <summary>
-		/// Qualifying share account
-		/// </summary>
-		[EnumMember(Value = "qshr")]
-		Qshr,
-
-		/// <summary>
-		/// Canadian Registered Disability Savings Plan
-		/// </summary>
-		[EnumMember(Value = "rdsp")]
+		[JsonPropertyName("rdsp")]
 		Rdsp,
 
 		/// <summary>
-		/// Canadian Registered Education Savings Plan
+		/// 
 		/// </summary>
-		[EnumMember(Value = "resp")]
+		[JsonPropertyName("resp")]
 		Resp,
 
 		/// <summary>
-		/// A retirement account not covered by other subtypes
+		/// 
 		/// </summary>
-		[EnumMember(Value = "retirement")]
-		Retirement,
-
-		/// <summary>
-		/// Canadian Restricted Life Income Fund
-		/// </summary>
-		[EnumMember(Value = "rlif")]
+		[JsonPropertyName("rlif")]
 		Rlif,
 
 		/// <summary>
-		/// Roth IRA
+		/// 
 		/// </summary>
-		[EnumMember(Value = "roth")]
-		Roth,
-
-		/// <summary>
-		/// Employer-sponsored investment savings account
-		/// </summary>
-		[EnumMember(Value = "roth 401k")]
-		Roth401k,
-
-		/// <summary>
-		/// Canadian Registered Retirement Income Fund
-		/// </summary>
-		[EnumMember(Value = "rrif")]
+		[JsonPropertyName("rrif")]
 		Rrif,
 
 		/// <summary>
-		/// Canadian Registered Retirement Savings Plan (equivalent to 401k)
+		/// 
 		/// </summary>
-		[EnumMember(Value = "rrsp")]
+		[JsonPropertyName("pension")]
+		Pension,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("profit sharing plan")]
+		ProfitSharingPlan,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("retirement")]
+		Retirement,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("roth")]
+		Roth,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("roth 401k")]
+		Roth401k,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("rrsp")]
 		Rrsp,
 
 		/// <summary>
-		/// Salary Reduction Simplified Employee Pension Plan
+		/// 
 		/// </summary>
-		[EnumMember(Value = "sarsep")]
-		Sarsep,
-
-		/// <summary>
-		/// Simplified Employee Pension IRA
-		/// </summary>
-		[EnumMember(Value = "sep ira")]
+		[JsonPropertyName("sep ira")]
 		SepIra,
 
 		/// <summary>
-		/// Savings Incentive Match Plan for Employees IRA
+		/// 
 		/// </summary>
-		[EnumMember(Value = "simple ira")]
+		[JsonPropertyName("simple ira")]
 		SimpleIra,
 
 		/// <summary>
-		/// UK Self-Invested Personal Pension
+		/// 
 		/// </summary>
-		[EnumMember(Value = "sipp")]
+		[JsonPropertyName("sipp")]
 		Sipp,
 
 		/// <summary>
-		/// Standard Stock Plan account
+		/// 
 		/// </summary>
-		[EnumMember(Value = "stock plan")]
+		[JsonPropertyName("stock plan")]
 		StockPlan,
 
 		/// <summary>
-		/// Canadian tax-free savings account, equivalent to roth
+		/// 
 		/// </summary>
-		[EnumMember(Value = "tfsa")]
-		Tfsa,
-
-		/// <summary>
-		/// Defined contribution plan for US civil servants
-		/// </summary>
-		[EnumMember(Value = "thrift savings plan")]
+		[JsonPropertyName("thrift savings plan")]
 		ThriftSavingsPlan,
 
 		/// <summary>
-		/// Account representing funds or assets held by a trustee for the benefit of a beneficiary
+		/// 
 		/// </summary>
-		[EnumMember(Value = "trust")]
+		[JsonPropertyName("tfsa")]
+		Tfsa,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("trust")]
 		Trust,
 
 		/// <summary>
-		/// 'Uniform Gift to Minors Act' (brokerage account for minors)
+		/// 
 		/// </summary>
-		[EnumMember(Value = "ugma")]
+		[JsonPropertyName("ugma")]
 		Ugma,
 
 		/// <summary>
-		/// 'Uniform Transfers to Minors Act' (brokerage account for minors)
+		/// 
 		/// </summary>
-		[EnumMember(Value = "utma")]
+		[JsonPropertyName("utma")]
 		Utma,
 
 		/// <summary>
-		/// Tax-deferred capital accumulation annuity contract
+		/// 
 		/// </summary>
-		[EnumMember(Value = "variable annuity")]
+		[JsonPropertyName("variable annuity")]
 		VariableAnnuity,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("credit card")]
+		CreditCard,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("paypal")]
+		Paypal,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("cd")]
+		Cd,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("checking")]
+		Checking,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("savings")]
+		Savings,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("money market")]
+		MoneyMarket,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("prepaid")]
+		Prepaid,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("auto")]
+		Auto,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("business")]
+		Business,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("commercial")]
+		Commercial,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("construction")]
+		Construction,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("consumer")]
+		Consumer,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("home")]
+		Home,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("home equity")]
+		HomeEquity,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("loan")]
+		Loan,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("mortgage")]
+		Mortgage,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("overdraft")]
+		Overdraft,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("line of credit")]
+		LineOfCredit,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("student")]
+		Student,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("cash management")]
+		CashManagement,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("keogh")]
+		Keogh,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("mutual fund")]
+		MutualFund,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("recurring")]
+		Recurring,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("rewards")]
+		Rewards,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("safe deposit")]
+		SafeDeposit,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[JsonPropertyName("sarsep")]
+		Sarsep,
 	}
 }

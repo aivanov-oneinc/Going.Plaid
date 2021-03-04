@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity
 	/// <summary>
 	/// See the <a href="https://plaid.com/docs/api/accounts#account-type-schema">Account type schema</a> for a full listing of account types and corresponding subtypes.
 	/// </summary>
-	public enum AccountType
+	public enum OverrideAccountType
 	{
 		/// <summary>
 		/// Investment account
@@ -31,12 +31,6 @@ namespace Going.Plaid.Entity
 		/// </summary>
 		[JsonPropertyName("loan")]
 		Loan,
-
-		/// <summary>
-		/// An investment account. Used for `/assets/` endpoints only; other endpoints use `investment`.
-		/// </summary>
-		[JsonPropertyName("brokerage")]
-		Brokerage,
 
 		/// <summary>
 		/// Non-specified account type

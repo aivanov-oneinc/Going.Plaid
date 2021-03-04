@@ -1,49 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
+using System;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Entity
 {
 	/// <summary>
-	/// The current verification status of an Auth <see cref="Item" /> initiated through Automated or Manual micro-deposits.  Returned for Auth <see cref="Item" />s only.
+	/// The verification status. One of the following:
 	/// </summary>
 	public enum VerificationStatus
 	{
 		/// <summary>
-		/// The <see cref="Item" /> is pending automatic verification
+		/// The information was successfully verified.
 		/// </summary>
-		[EnumMember(Value = "pending_automatic_verification")]
-		PendingAutomaticVerification,
+		[JsonPropertyName("VERIFIED")]
+		Verified,
 
 		/// <summary>
-		/// The <see cref="Item" /> is pending manual micro-deposit verification. <see cref="Item" />s remain in this state until the user successfully verifies the two amounts.
+		/// The verification has not yet been performed.
 		/// </summary>
-		[EnumMember(Value = "pending_manual_verification")]
-		PendingManualVerification,
+		[JsonPropertyName("UNVERIFIED")]
+		Unverified,
 
 		/// <summary>
-		/// The <see cref="Item" /> has successfully been automatically verified
+		/// The verification was attempted but could not be completed due to missing information.
 		/// </summary>
-		[EnumMember(Value = "automatically_verified")]
-		AutomaticallyVerified,
+		[JsonPropertyName("NEEDS_INFO")]
+		NeedsInfo,
 
 		/// <summary>
-		/// The <see cref="Item" /> has successfully been manually verified
+		/// 
 		/// </summary>
-		[EnumMember(Value = "manually_verified")]
-		ManuallyVerified,
+		[JsonPropertyName("UNABLE_TO_VERIFY")]
+		UnableToVerify,
 
 		/// <summary>
-		/// Plaid was unable to automatically verify the deposit within 7 calendar days and will no longer attempt to validate the <see cref="Item" />. Users may retry by submitting their information again through Link.
+		/// The verification status is unknown.
 		/// </summary>
-		[EnumMember(Value = "verification_expired")]
-		VerificationExpired,
-
-		/// <summary>
-		/// The <see cref="Item" /> failed manual micro-deposit verification because the user exhausted all 3 verification attempts. Users may retry by submitting their information again through Link.
-		/// </summary>
-		[EnumMember(Value = "verification_failed")]
-		VerificationFailed,
+		[JsonPropertyName("UNKNOWN")]
+		Unknown,
 	}
 }
